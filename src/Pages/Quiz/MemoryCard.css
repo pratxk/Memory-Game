@@ -3,8 +3,14 @@
     width: 200px;
     height: 200px;
     border: 1px solid #f1f1f1;
+    border-radius: 10px; /* Rounded corners */
     perspective: 1000px;
     cursor: pointer;
+    transition: box-shadow 0.3s ease;
+}
+
+.flip-card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Shadow on hover */
 }
 
 .flip-card-inner {
@@ -26,17 +32,25 @@
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-}
-
-.flip-card-front {
-    background-color: #bbb;
-}
-
-.flip-card-back {
-    background-color: dodgerblue;
-    color: white;
-    transform: rotateY(180deg);
+    border-radius: 10px; /* Match front and back */
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+}
+
+.flip-card-front {
+    background: linear-gradient(135deg, #f0f0f0, #d9d9d9); /* Gradient background */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.flip-card-back {
+    background-color: #007bff; /* Bright blue */
+    color: white;
+    transform: rotateY(180deg);
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.flip-card-back:hover {
+    background-color: #0056b3; /* Darker blue on hover */
 }
